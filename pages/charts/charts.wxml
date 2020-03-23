@@ -1,0 +1,26 @@
+  <!--pages/charts/charts.wxml-->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+
+ <view class="container" >
+
+  <!--  <view class="fsection">
+  <view class="section" >  
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{objectArray}}" mode = "selector">  
+    <view class="picker">  
+      操作：{{objectArray[index]}}  
+    </view>  
+  </picker>  
+  </view>
+ 
+ <view class="section" >
+  <picker mode="date" value="{{date}}" start="1978-01-01" end="2017-1-23" bindchange="bindDateChange">  
+    <view class="picker">  
+      日期: 2019-11-27  
+    </view>  
+  </picker>  
+</view>
+</view> -->
+
+    <ec-canvas id='mychart' class='mychart' canvas-id="mychart-line"ec="{{ec}}"></ec-canvas>
+  </view>
+

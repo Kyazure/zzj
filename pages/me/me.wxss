@@ -1,0 +1,96 @@
+page{
+  width: 100%;
+  height: 100%;
+}
+body{
+  width: 100%;
+  height: 100%;
+  background-color: #eef6eb;
+}
+.container{
+  justify-content: flex-start;
+}
+.selectlist{
+  width: 100%;
+  bottom: 27%;
+}
+
+.userinfo{
+  width: 100%;
+  height: 229rpx;
+  background-color: rgb(83, 255, 83, 0.308);
+
+  display: flex;
+
+  justify-content: space-around;
+  align-items: center;
+
+  bottom: 27%;
+}
+.bindViewTap{
+
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.img{
+  width: 134rpx;
+  height: 134rpx;
+}
+
+.userinfo-avatar{
+  width: 134rpx;
+  height: 134rpx;
+  border-radius: 50%;
+
+}
+
+.userinfo-nickname{
+  font-size: 36rpx;
+  position: relative;
+  bottom: 36rpx;
+}
+
+.usererweima{
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.list{
+  width: 100%;
+  height: 60rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  background-color: #fff;
+  border: 1rpx solid #e0e0e0;
+}
+
+
+.listlogo{
+  width: 54rpx;
+  height: 54rpx;
+  background-size: 350%;
+  background-position: center;
+  margin-left: 40rpx;
+  float: left;
+}
+
+.listtext{
+  float: left;
+  margin-left: 46rpx;
+  font-size: 34rpx;
+  line-height: 60rpx;
+}
+
+.listmore{
+  width: 54rpx;
+  height: 54rpx;
+  float: right;
+  margin-right: 33rpx;
+  background-size: 350%;
+  background-position: center 45%;
+}

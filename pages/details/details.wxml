@@ -1,0 +1,60 @@
+<!--pages/details/details.wxml-->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+<view bindtap='none'>
+<view style='display: flex;  justify-content: center;flex-wrap: wrap;margin-bottom:20rpx;'>
+  <text>{{info}}</text>
+</view>
+
+<!--导航栏-->
+<view class='container'>
+<scroll-view scroll-x="true" class=".scroll-header">
+  <view class="swiper-tab">
+    <view class="swiper-tab-item" wx:for='{{operates}}'  id='{{item.name}}' bindtap="click" hover-class="btn-click">
+      {{item.name}}
+    </view>
+  </view>
+</scroll-view>
+
+
+<view class="swiper-tab2">
+  <scroll-view scroll-x="true" class=".scroll-header">
+    <view class="swiper-tab-item2 {{currentTab2==0?'active2':''}}" data-current="0" bindtap="oneWeek" hover-class="btn-click">一周内</view>
+    <view class="swiper-tab-item2 {{currentTab2==1?'active2':''}}" data-current="1" bindtap="twoWeeks" hover-class="btn-click">两周内</view>
+    <view class="swiper-tab-item2 {{currentTab2==2?'active2':''}}" data-current="2" bindtap="threeWeeks" hover-class="btn-click">三周内</view>
+  </scroll-view>
+</view>
+
+<block wx:for='{{caozuo}}' wx:key="{{item.id}}" wx:if='{{type}}'>
+  <view class='.kuang' id="{{item.id}}" bindlongpress='longTap'>
+    <image src='{{item.imgUrl}}' class='.gongneng'></image>
+
+    <view class='.text'>
+      <view class='.caozong'>
+        <!-- <text style='font-size:30rpx;margin-right:10rpx;'>操纵人：{{item.who}}</text> -->
+        <text style='font-size:30rpx;margin-right:10rpx;'>操作容量：{{item.capacity}}</text>
+        <text style='font-size:30rpx;margin-right:10rpx;'>操作名称：{{item.operationName}}</text>
+      </view>
+      <view class='.caozong'>
+        <text style='font-size:27rpx;margin-right:10rpx;'>温度：{{item.mixTemp}}℃~{{item.maxTemp}}℃</text>
+        <text style='font-size:27rpx;margin-right:10rpx;'>湿度：{{item.humidity}}%</text>
+        
+      </view>
+      <text style='font-size:27rpx;margin-right:10rpx;'>时间：{{item.createTime}}</text>
+    </view>
+
+    <!-- <view class='.text'>
+      <image src="{{ item.tempUrl }}" style='height:80rpx;width:100rpx;'></image>
+      <text style='font-size:27rpx;'></text>
+    </view> -->
+
+  </view>
+</block>
+</view>
+
+<!--删除-->
+<view class='selection' style='left:{{x}};top:{{y}}' wx:if="{{showSelection}}">
+  <view class='delete' bindtap='toDelete' hover-class='delete-hover'>
+    <view class="textcontent">删除</view>
+    </view>
+</view>
+</view>

@@ -1,0 +1,41 @@
+<!--pages/about/about.wxml-->
+<!-- <view>
+  <view class='nav bg-white' style='height:{{navH}}px'>
+    <image class="back" src="../../images/choosefarm/FH.png" bindtap='backup'></image>
+    <view class='nav-title'>
+      关于我们
+    </view>
+  </view> -->
+  <nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+<view class='container'>
+<view style='height: 100vh;background:#eef6eb'>
+  <view class="main">
+    <view class="logo_and_info">
+      <view class="logo">
+        <image class="logoimg" src="../../images/login/logo.png"></image>
+      </view>
+      <view class="info">“种种记”。帮助农场主记录土地操作，我们原则上简约，便捷操作，为了让农场主更好的使用它，达到农场主想要的结果。</view>
+    </view>
+
+    <view class="connection">
+      <view class="conlist">
+        <view class="contitle">电话</view>
+        <view class="context">11234567</view>
+      </view>
+      <view class="conlist">
+        <view class="contitle">邮箱</view>
+        <view class="context">11234567</view>
+      </view>
+      <view class="conlist">
+        <view class="contitle">微信</view>
+        <view class="context">11234567</view>
+      </view>
+      <view class="conlist">
+        <view class="contitle">QQ</view>
+        <view class="context">11234567</view>
+      </view>
+    </view>
+  </view>
+  </view>
+  </view>
+<!-- </view> -->

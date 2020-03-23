@@ -1,0 +1,29 @@
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+    <view class="container" >
+      <view class="userinfo">
+         
+        <view  bindtap='bindViewTap'>
+            <image  class="userinfo-avatar" src="{{avatarUrl}}" mode="cover" ></image>
+            <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        </view>
+            <image src='/images/me/EWM.png' class='usererweima' bindtap="click"></image>
+            <view>{{show}}</view>
+         
+      </view>
+
+      <view class="selectlist">
+   
+        <view class="list"  bindtap='gethelp'>
+          <image class="listlogo" src="../../images/me/help.png"></image>
+          <view class="listtext">帮助中心</view>
+          <image class="listmore" src="../../images/me/more.png"></image>
+        </view>
+
+        <view class="list" bindtap='about'>
+          <image class="listlogo" src="../../images/me/about.png"></image>
+          <view class="listtext">关于我们</view>
+          <image class="listmore" src="../../images/me/more.png"></image>
+        </view>
+
+      </view>
+    </view>

@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "ec-canvas": "../../ec-canvas/ec-canvas",
+    "nav-bar": "/commpents/navbar/index"
+    },
+    "navigationBarTitleText": "地块统计",
+    "enablePullDownRefresh": false
+}

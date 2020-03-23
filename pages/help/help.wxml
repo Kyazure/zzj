@@ -1,0 +1,29 @@
+<!--pages/help/help.wxml-->
+<!-- <view>
+  <view class='nav bg-white' style='height:{{navH}}px'>
+    <image class="back" src="../../images/choosefarm/FH.png" bindtap='backup'></image>
+    <view class='nav-title'>
+      帮助中心
+    </view>
+  </view> -->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+
+<view class='container'>
+  <scroll-view class='bg-gray overflow' style='height: {{screenH}}px' scroll-y  style='background-color: #eef6eb'>
+    <view class="main" style='height: {{screenH - 25}}px'>
+      <view class="question" style='margin-top: 100rpx;'>
+        <view class="queimg">
+          <image class="quelogo" src="../../images/help/buy.jpg"></image>
+          <text class="type">创建基地</text>
+        </view>
+        <view class="list">点击创建按钮进行创建</view>
+        <view class="list">基地的地点需为所在地城市名</view>
+        <view class="list"></view>
+        <view class="list" style='border: none'></view>
+      </view>
+      
+    </view>
+    
+  </scroll-view>
+  </view>
+<!-- </view> -->

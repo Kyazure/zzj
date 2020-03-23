@@ -1,0 +1,273 @@
+/* pages/index/index.wxss */
+.plot{
+  /* overflow: hidden;  隐藏超过的部分 */
+  margin-top:10rpx;
+  /* background: linear-gradient(60deg, rgb(181, 252, 187), rgb(91, 255, 140),rgb(181, 252, 187)); */
+  background: #daebc2;
+  border-radius: 20rpx;
+  margin:10rpx;
+  margin-bottom:10rpx;
+}
+.plot:active{
+  opacity: 0.5;
+}
+.operate{
+  width: 200rpx;
+  float: left;
+  margin-right: 50rpx;
+}
+.operate1{
+  width: 400rpx;
+  float: left;
+  margin-right: 50rpx;
+  margin-left: 30rpx;
+}
+.left{
+  overflow:hidden;
+  width: 500rpx;
+  float: left;
+  margin-left: 30rpx;
+  margin-bottom: 20rpx;
+}
+.rightImage{
+  width: 15%;
+  overflow: hidden;
+  float: right;
+  /* margin-bottom: 2%; */
+}
+
+.gongneng{
+  width: 100rpx;
+  height: 100rpx;
+}
+.more{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  display: -webkit-box;
+
+  border-radius: 20rpx
+}
+.imgstyl{
+  width: 100rpx;
+  height: 100rpx;
+  margin: 0 10rpx;
+}
+
+
+.toast-box {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+}
+ 
+.toastbg {
+    position: fixed;
+    opacity: 0.2;
+    background-color: black;
+    width: 100%;
+    height: 100vh;
+}
+ 
+.showToast {
+    position: absolute;
+    opacity: 1;
+    width: 60%;
+    margin-left: 15%;
+    margin-top: 40%;
+}
+ 
+.toast-title {
+    padding-left: 5%;
+    background-color: #2196f3;
+    color: white;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    border-top-right-radius: 16rpx;
+    border-top-left-radius: 16rpx;
+}
+ 
+.toast-main {
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    background-color: white;
+    text-align: center;
+    display: flex;
+    flex-flow: column
+}
+ 
+.toast-input {
+    margin-left: 5%;
+    margin-right: 5%;
+    border: 1px solid #ddd;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    
+}
+ 
+.toast-button {
+    display: flex;
+}
+ 
+.button1 {
+    width: 50%;
+}
+ 
+.button2 {
+    width: 50%;
+}
+ 
+.button1 button {
+    width: 100%;
+    background-color: white;
+    color: red;
+    border-radius: 0px;
+    border-bottom-left-radius: 16rpx;
+}
+ 
+.button2 button{
+    width: 100%;
+    background-color: white;
+    color: black;
+    border-radius: 0px;
+    border-bottom-right-radius: 16rpx;
+}
+ 
+.picker {
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+}
+
+.btnn{
+  width: 88rpx;
+  height: 88rpx;
+  margin: 6rpx;
+  border-radius: 50%;
+}
+
+.btn-hover {
+  opacity: 0.4;
+}
+
+.show-btn {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  border: 4rpx solid rgb(83, 255, 83);
+  margin: 100rpx auto;
+}
+
+.modal-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9000;
+  color: #fff;
+}
+
+.modal-dialog {
+  width: 540rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  z-index: 9999;
+  background: #fff;
+  margin: -180rpx 105rpx;
+  border-radius: 36rpx;
+}
+
+.modal-title {
+  padding-top: 50rpx;
+  font-size: 36rpx;
+  color: #030303;
+  text-align: center;
+}
+
+.modal-content {
+  padding: 50rpx 32rpx;
+}
+
+.modal-input {
+  display: flex;
+  background: #fff;
+  border-bottom: 2rpx solid #ddd;
+  border-radius: 4rpx;
+  font-size: 28rpx;
+}
+
+.input {
+  width: 100%;
+  height: 82rpx;
+  font-size: 28rpx;
+  line-height: 28rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  color: #333;
+}
+
+input-holder {
+  color: #666;
+  font-size: 28rpx;
+}
+
+.modal-footer {
+  display: flex;
+  flex-direction: row;
+  height: 86rpx;
+  border-top: 1px solid #dedede;
+  font-size: 34rpx;
+  line-height: 86rpx;
+}
+
+.btn-cancel {
+  width: 50%;
+  color: #666;
+  text-align: center;
+  border-right: 1px solid #dedede;
+}
+
+.btn-confirm {
+  width: 50%;
+  color: #ec5300;
+  text-align: center;
+}
+/*添加与删除*/
+.selection{
+  font-size: 35rpx;
+  color: rgb(206, 201, 201);
+  width: auto;
+  height: auto;
+  position: absolute;
+  background-color: rgb(0, 0, 0);
+  border-radius: 15rpx;
+}
+.toadd{
+  width: 100rpx;
+  height: 50rpx;
+  border-style: none none solid none;
+  border-width: 1rpx;
+  border-color: rgb(206, 201, 201);
+}
+.delete{
+  width: 100rpx;
+  height: 50rpx;
+}
+.textcontent{
+  margin-left: 15rpx;
+  letter-spacing: 4rpx;
+}
+.toadd-hover{
+  opacity: 0.5
+}
+.delete-hover{
+  opacity: 0.5
+}

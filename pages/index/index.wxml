@@ -1,0 +1,174 @@
+<!--pages/index/index.wxml-->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+<view bindtap="back" class='container'>
+  <block wx:for='{{Dikuai}}' wx:for-item='d'  wx:key=''>
+    <!--地块信息栏-->
+    <view class='plot' bindtap='showmore' id="{{d.id}}" bindlongpress='longTap'>
+
+      <view style='display: flex;  justify-content: center;flex-wrap: wrap;'>
+        <!-- <text>{{dikuai}}-{{item.num+2}}号</text> -->
+        <text>地块名:{{d.name}}</text>
+      </view>
+      <view class='operate1'>
+          <text style='width:300rpx;'>基地：{{baseName}}</text>
+      </view>
+      <view class='operate1'>
+          <text style='width:300rpx;'>蔬菜：{{d.vegetableName}}</text>
+        </view>
+      <view class='left'>
+        <!-- <view class='operate'>
+          <text style='width:300rpx;'>基地：{{baseName}}</text>
+        </view> -->
+        <!-- <view class='operate'>
+          <text style='width:300rpx;'>蔬菜：{{d.vegetableName}}</text>
+        </view> -->
+        <view class='operate' wx:for='{{d.operationsList}}' wx:key=''>
+          <text>{{item.operationName}}(次)：{{item.totalCount}}</text>
+        </view>
+      </view>
+
+      <view class='rightImage' catchtap='jilu' id="{{d.id}}">
+        <image src='/images/index/jilu.png' style='width:80rpx;height:100rpx;margin-right:80rpx;'></image>
+        <view style='margin-left:20rpx;letter-spacing:5rpx;font-size:25rpx;width:70rpx;height:30rpx'>记录</view>
+      </view>
+
+      <view class='rightImage' catchtap='tongJi' data-url='{{item.dikuai}}' id="{{d.id}}" data-fieldBaseId="{{baseId}}">
+        <image src='/images/tongJI/tongji.png' style='width:80rpx;height:100rpx;margin-right:80rpx;'></image>
+        <view style='margin-left:20rpx;letter-spacing:5rpx;font-size:25rpx;width:70rpx;height:30rpx'>统计</view>
+      </view>
+    </view>
+
+    <!--操作栏-->
+    <scroll-view scroll-x="true" wx:if="{{d.showMore}}">
+      <view class='more'>
+        <view wx:for="{{operates}}" data-list="{{index}}" wx:key='' id="{{item.id}}" bindlongpress="longpressChosen" class='imgstyl' bindtap='addOpRecord'>
+          <image src='{{item.imgUrl}}' class='gongneng'></image>
+        </view>
+      </view>
+    </scroll-view>
+  </block>
+
+    <!--新增操作类型输入框-->
+    <view class="modal-mask" wx:if="{{showOpType}}"></view>
+    <view class="modal-dialog" wx:if="{{showOpType}}">
+      <view class="modal-title">新增操作</view>
+      <view class="modal-content">
+        <view class="modal-input">
+          <input maxlength="10" bindinput="opNameInput" class="input" placeholder="操作名"></input>
+        </view>
+        <!-- <view class="modal-input">
+          <input class="input" placeholder="选择图片"></input>
+        </view> -->
+      </view>
+      <view class="modal-footer">
+        <view class="btn-confirm" bindtap="inAddOpType">确定</view>
+        <view class="btn-cancel" bindtap="stopOpType">取消</view>
+      </view>
+    </view>
+
+    <!--新增操作记录输入框-->
+    <view class="modal-mask" wx:if="{{showOpRecord}}" bindtap='hideRecord'></view>
+    <view class="modal-dialog" wx:if="{{showOpRecord}}">
+      <view class="modal-title">{{opName}}</view>
+      <view class="modal-content">
+
+        <view class="modal-input">
+          <input maxlength="10" bindinput="capacityInput" class="input" placeholder="操作容量"></input>
+        </view>
+        
+      </view>
+      <view class="modal-footer">
+        <view class="btn-confirm" bindtap="inAddOpRecord">确定</view>
+        <view class="btn-cancel" bindtap="stopAdd">取消</view>
+      </view>
+    </view>
+
+  <!--地块添加按钮-->
+  <view class='btn' class="show-btn" hover-class='btn-hover' bindtap="showDialogBtn">
+    <image class='btnn' src='../../images/beindex/add.png'></image>
+  </view>
+
+
+
+  <!--创建弹窗-->
+  <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+  <view class="modal-dialog" wx:if="{{showModal}}">
+    <view class="modal-title">创建地块</view>
+    <view class="modal-content">
+      <view class="modal-input">
+        <input maxlength="7" class="input" placeholder="地块名" bindinput='DikuaiNameInput'></input>
+      </view>
+
+      <view class="modal-input">
+        <input maxlength="8" class="input" placeholder="蔬菜" bindinput='vegetableNameInput'></input>
+      </view>
+
+    </view>
+
+
+
+    <view class="modal-footer">
+
+      <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
+
+      <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+    </view>
+
+  </view>
+
+
+  <!--删除地块的弹窗-->
+  <view class='modal-mask' bindtap="hideSelection" wx:if="{{showSelection}}">
+  </view>
+  <view class='modal-dialog' wx:if="{{showSelection}}">
+    <!--删除or修改-->
+    <view wx:if="{{dORc}}">
+      <view class="modal-title">删除or修改</view>
+      <view class="modal-footer">
+        <view class="btn-confirm" bindtap="toDelete">删除</view>
+
+        <view class="btn-cancel" bindtap="toChange">修改</view>
+      </view>
+    </view>
+
+    <!--删除地块-->
+    <view class='modal-dialog' wx:if="{{TD}}">
+      <view class="modal-title">确定要删除该地块吗</view>
+      <view class="modal-footer">
+        <view class="btn-confirm" bindtap="indelete">确定</view>
+
+        <view class="btn-cancel" bindtap="hideSelection">取消</view>
+      </view>
+
+    </view>
+
+
+    <!--修改地块-->
+    <view wx:if="{{TC}}">
+      <view class="modal-title">修改</view>
+      <view class="modal-content">
+        <view class="modal-input">
+          <input maxlength="7" bindinput="nameChange" class="input" placeholder="原地块名：{{dikuai}}"></input>
+        </view>
+
+      </view>
+      <view class="modal-footer">
+        <view class="btn-confirm" bindtap="inChange">确定</view>
+
+        <view class="btn-cancel" bindtap="hideSelection">取消</view>
+      </view>
+    </view>
+
+  </view>
+
+
+  <!--添加或删除操作类型-->
+  <view class='selection' style='left:{{x}};top:{{y}}' wx:if="{{showOpSelection}}">
+    <view class='toadd' bindtap='addOpType' hover-class='toadd-hover'>
+      <view class="textcontent">添加</view>
+    </view>
+    <view class='delete' bindtap='deleteOpType' hover-class='delete-hover'>
+      <view class="textcontent">删除</view>
+    </view>
+  </view>
+</view>

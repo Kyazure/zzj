@@ -1,0 +1,82 @@
+<!--index.wxml-->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+<view class="container">
+  <block wx:for="{{bases}}" wx:key="b_number" wx:for-item="b" >
+    <view class='theBase' bindtap='todikuai'  bindlongtap='longTap' id="{{b.id}}" data-dName="{{b.name}}">
+      <view class='baseName'>{{b.name}}基地</view>
+      <view class='place'>位置:{{b.location}}</view>
+    </view>
+  </block>
+
+  <view class='btn' class="show-btn" hover-class='btn-hover' bindtap="showDialogBtn">
+    <image class='btnn' src='../../images/beindex/add.png'></image>
+  </view>
+</view>
+
+<!--弹窗-->
+<view class='modal-mask' bindtap="hideSelection" wx:if="{{selection}}">
+</view>
+<view class='modal-dialog' wx:if="{{selection}}">
+
+<!--删除or修改-->
+  <view wx:if="{{dORc}}">
+    <view class="modal-title">删除or修改</view> 
+    <view class="modal-footer">
+      <view class="btn-confirm" bindtap="toDelete">删除</view>
+
+      <view class="btn-cancel" bindtap="toChange" >修改</view>
+    </view>
+  </view>
+
+ <!--删除基地-->
+<view class='modal-dialog' wx:if="{{TD}}">
+<view class="modal-title">确定要删除该基地吗</view>
+  <view class="modal-footer">
+    <view class="btn-confirm" bindtap="indelete">确定</view>
+
+    <view class="btn-cancel" bindtap="nodelete" >取消</view>
+  </view>
+
+</view>
+
+<!--修改基地-->
+  <view wx:if="{{TC}}">
+    <view class="modal-title">修改</view> 
+      <view class="modal-content">
+        <view class="modal-input">
+            <input  maxlength="7" bindinput="nameChange" class="input" placeholder="原基地名：{{b}}"  ></input>
+        </view>
+
+        <view class="modal-input">
+          <input  maxlength="5" bindinput="placeChange" class="input" placeholder="原位置：{{p}}" ></input>
+        </view>
+      </view>
+    <view class="modal-footer">
+      <view class="btn-confirm" bindtap="inChange">确定</view>
+
+      <view class="btn-cancel" bindtap="noChange" >取消</view>
+    </view>
+  </view>
+
+</view>
+
+<!--新建基地 -->
+<view class="modal-mask" bindtap="hideModal"  wx:if="{{showModal}}"></view>
+<view class="modal-dialog" wx:if="{{showModal}}">
+  <view class="modal-title">创建基地</view>
+  <view class="modal-content">
+    <view class="modal-input">
+      <input  maxlength="7" bindinput="inputChange" class="input" placeholder="基地名" bindinput='baseNameInput'></input>
+    </view>
+
+    <view class="modal-input">
+      <input  maxlength="5" bindinput="inputChange" class="input" placeholder="位置" bindinput='placeNameInput'></input>
+    </view>
+
+
+  </view>
+  <view class="modal-footer">
+    <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
+    <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+  </view>
+</view>

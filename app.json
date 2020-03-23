@@ -1,0 +1,40 @@
+{
+  "pages": [
+  
+    "pages/register/register",
+    "pages/beindex/beindex",
+    "pages/index/index",
+    "pages/me/me",
+    "pages/charts/charts",
+    "pages/details/details",
+    "pages/mine/chaxun/chaxun"
+  ],
+  "window": {
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black",
+    "navigationStyle":"custom"
+  },
+    "tabBar": {
+      "backgroundColor": "#FFFFFF",
+      "list": [
+        {
+          "pagePath": "pages/beindex/beindex",
+          "text": "地块",
+          "iconPath": "images/tabBar/select2.png",
+          "selectedIconPath": "images/tabBar/select1.png"
+        },   
+        {
+          "pagePath": "pages/me/me",
+          "text": "我的",
+          "iconPath": "images/tabBar/mine2.png",
+          "selectedIconPath": "images/tabBar/mine1.png"
+        }
+      ]
+    },
+  "sitemapLocation": "sitemap.json"
+
+
+}
